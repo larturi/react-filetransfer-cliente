@@ -1,5 +1,11 @@
 export const REGISTRO_OK = 'REGISTRO_OK';
 export const REGISTRO_ERROR = 'REGISTRO_ERROR';
+
+export const LOGIN_OK = 'LOGIN_OK';
+export const LOGIN_ERROR = 'LOGIN_ERROR';
+
 export const LIMPIAR_ALERTA = 'LIMPIAR_ALERTA';
 
 export const USUARIO_AUTENTICADO = 'USUARIO_AUTENTICADO';
+
+export const CERRAR_SESION = 'CERRAR_SESION';
