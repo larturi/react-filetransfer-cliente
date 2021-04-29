@@ -1,20 +1,24 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useContext } from 'react';
 import { useDropzone } from 'react-dropzone';
 import clienteAxios from '../config/axios';
+import appContext from '../context/app/appContext';
 
 const Dropzone = () => {
 
+    const AppContext = useContext(appContext);
+    const {cargando, mostrarAlerta, uploadFile, crearEnlace } = AppContext;
+
     const onDropRejected = () => {
-        console.log('Pesado');
+        mostrarAlerta('No se pudo subir el archivo, el limite es 1MB. Registrate para subir archivos mas grandes.')
     };
     
     const onDropAccepted = useCallback( async (acceptedFiles) => {
-
+        
         const formData = new FormData();
-        formData.append('archivo', acceptedFiles[0])
+        formData.append('archivo', acceptedFiles[0]);
+        
+        uploadFile(formData, acceptedFiles[0].path);
 
-        const resultado = await clienteAxios.post('/api/archivos', formData);
-        console.log(resultado);
     }, []);
     
     const { getRootProps, getInputProps, isDragActive, acceptedFiles } = useDropzone({onDropAccepted, onDropRejected, maxSize: 1000000});
@@ -29,10 +33,6 @@ const Dropzone = () => {
         </li>
     ));
 
-    const crearEnlace = () => {
-
-    };
-
     return ( 
         <div className="md:flex-1 mb-3 mx-4 mt-16 lg:mt-0 flex flex-col 
                         items-center justify-center border-dashed 
@@ -44,10 +44,14 @@ const Dropzone = () => {
                     <ul>
                         {archivos}
                     </ul>
-                    <button 
-                        className="bg-blue-700 w-full py-3 rounded-lg text-white my-10 hover:bg-blue-800"
-                        onClick={() => crearEnlace() }
-                    >Crear Enlace</button>
+
+                    { cargando ?  <p className="my-10 text-center text-gray-600">Subiendo archivo...</p> : (
+                        <button 
+                           className="bg-blue-700 w-full py-3 rounded-lg text-white my-10 hover:bg-blue-800"
+                            onClick={() => crearEnlace() }
+                         >Crear Enlace</button>
+                    )}
+                    
                 </div>
             ) : (
 
