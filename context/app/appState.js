@@ -8,7 +8,8 @@ import {
     SUBIR_ARCHIVO_OK,
     SUBIR_ARCHIVO_ERROR,
     CREAR_ENLACE_OK,
-    CREAR_ENLACE_ERROR
+    CREAR_ENLACE_ERROR,
+    LIMPIAR_STATE
 } from '../../types';
 
 import appContext from './appContext';
@@ -91,6 +92,13 @@ const appState = ({children}) => {
         }
     };
 
+    // Limpiar el State
+    const limpiarState = () => {
+        dispatch({
+            type: LIMPIAR_STATE  
+        })
+    };
+
     return (
         <appContext.Provider
             value={{
@@ -104,7 +112,8 @@ const appState = ({children}) => {
                 url: state.url,
                 uploadFile,
                 crearEnlace,
-                mostrarAlerta
+                mostrarAlerta,
+                limpiarState
             }}
         >
             {children}

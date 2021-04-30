@@ -1,22 +1,38 @@
 import React, { useContext, useEffect } from 'react';
 import Link from 'next/link';
 import authContext from '../context/auth/authContext';
+import appContext from '../context/app/appContext';
+import { useRouter } from 'next/router';
 
 const Header = () => {
+
+   // Routing
+   const router = useRouter();
 
    // Extraer el usuario autenticado del storage
    const AuthContext = useContext(authContext);
    const { usuarioAutenticado, usuario, cerrarSesion } = AuthContext;
 
+   // Context de la app
+   const AppContext = useContext(appContext);
+   const { limpiarState } = AppContext;
+
    useEffect(() => {
       usuarioAutenticado();
    }, []);
 
-    return (
-        <header className="py-8 flex flex-col md:flex-row items-center justify-between">
-           <Link href="/">
-                <img className="w-64 mb-8 md:mb-0" src="logo.png"/>
-           </Link>
+   const goToIndex = () => {
+      router.push('/');
+      limpiarState();
+   };
+
+   return (
+       <header className="py-8 flex flex-col md:flex-row items-center justify-between">
+           <img 
+            className="w-64 mb-8 md:mb-0 cursor-pointer" 
+            src="/logo.svg"
+            onClick={ () => goToIndex() }
+         />
 
            <div>
                {
@@ -44,7 +60,7 @@ const Header = () => {
                
            </div>
         </header>
-    )
+   )
 }
 
 export default Header;
