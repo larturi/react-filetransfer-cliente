@@ -41,18 +41,24 @@ const Header = () => {
                         <p className="mr-3">Hola {usuario.nombre}</p>
                         <button
                            className="bg-black px-5 py-3 rounded-lg text-white font-bold uppercase"
-                           onClick={() => cerrarSesion()}
+                           onClick={() => {
+                              cerrarSesion();
+                              window.location.reload();
+                           }}
                         >Cerrar Sesión</button>
                      </div>
                   ) : (
                      <>
-                        <Link href="/login">
-                           <a className="bg-red-500 px-5 py-3 rounded-lg text-white font-bold uppercase mr-2">Iniciar Sesion</a>
-                        </Link>
+                        
+                           <button 
+                              className="bg-red-500 px-5 py-3 rounded-lg text-white font-bold uppercase mr-2"
+                              onClick={ () => router.push('/login') }
+                           >Iniciar Sesion</button>
 
-                        <Link href="/crearcuenta">
-                           <a className="bg-black px-5 py-3 rounded-lg text-white font-bold uppercase">Crear Cuenta</a>
-                        </Link>
+                           <button 
+                              className="bg-black px-5 py-3 rounded-lg text-white font-bold uppercase"
+                              onClick={ () => router.push('/crearcuenta') }
+                           >Crear Cuenta</button>
                      </>
                   )
                }

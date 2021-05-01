@@ -5,12 +5,13 @@ import {
     SUBIR_ARCHIVO_OK,
     SUBIR_ARCHIVO_ERROR,
     CREAR_ENLACE_OK,
-    CREAR_ENLACE_ERROR,
-    LIMPIAR_STATE
+    AGREGAR_PASSWORD,
+    AGREGAR_DESCARGAS,
+    LIMPIAR_STATE,
 } from '../../types';
 
 
-export default(state, action) => {
+const appReducer = (state, action) => {
 
     switch (action.type) {
 
@@ -53,6 +54,18 @@ export default(state, action) => {
                 url: action.payload
             }
 
+        case AGREGAR_PASSWORD:
+            return {
+                ...state,
+                password: action.payload
+            }
+
+        case AGREGAR_DESCARGAS:
+            return {
+                ...state,
+                descargas: action.payload
+            }
+
         case LIMPIAR_STATE:
             return {
                 ...state,
@@ -71,3 +84,5 @@ export default(state, action) => {
     }
 
 };
+
+export default appReducer;

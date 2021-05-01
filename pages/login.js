@@ -8,7 +8,7 @@ import Alerta from '../components/Alerta';
 
 const Login = () => {
 
-  // Definir el conte
+  // Definir el context
   const AuthContext = useContext(authContext);
   const { mensaje, isAutenticado, iniciarSesion } = AuthContext;
 
@@ -40,10 +40,11 @@ const Login = () => {
       <div className="md:w-4/5 xl:w-3/5 mx-auto mb-32">
         <h2 className="text-4xl font-sans font-bold text-gray-800 text-center my-4">Login</h2>
 
-        { mensaje && <Alerta /> }
-
         <div className="flex justify-center mt-5">
           <div className="w-full max-w-lg">
+
+            { mensaje && <Alerta /> }
+
             <form
               className="bg-white rounded shadow-md px-8 pt-6 pb-8 mb-4"
               onSubmit={formik.handleSubmit}
@@ -86,7 +87,7 @@ const Login = () => {
 
               <input
                 type="submit"
-                className="bg-red-500 hover:bg-gray-900 w-full p-2 text-white uppercase font-bold"
+                className="bg-red-500 hover:bg-gray-900 w-full p-2 text-white uppercase font-bold cursor-pointer"
                 value="Iniciar Sesion"
               />
             </form>

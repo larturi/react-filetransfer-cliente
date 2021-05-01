@@ -8,16 +8,22 @@ import {
     CERRAR_SESION
 } from '../../types';
 
-export default (state, action) => {
+const authReducer = (state, action) => {
 
     switch (action.type) {
         case REGISTRO_OK:
-        case REGISTRO_ERROR:
-        case LOGIN_ERROR:
             return {
                 ...state,
                 mensaje: action.payload,
                 isAutenticado: true
+            }
+
+        case REGISTRO_ERROR:
+            return {
+                ...state,
+                mensaje: action.payload,
+                isAutenticado: false,
+                usuario: null
             }
 
         case LOGIN_OK:
@@ -26,6 +32,14 @@ export default (state, action) => {
                 ...state,
                 token: action.payload,
                 isAutenticado: true
+            }
+
+        case LOGIN_ERROR:
+            return {
+                ...state,
+                mensaje: action.payload,
+                isAutenticado: false,
+                usuario: null
             }
 
         case LIMPIAR_ALERTA:
@@ -37,20 +51,23 @@ export default (state, action) => {
         case USUARIO_AUTENTICADO:
             return {
                 ...state,
-                usuario: action.payload
+                usuario: action.payload,
+                isAutenticado: true
             }
 
         case CERRAR_SESION:
-            localStorage.removeItem('token');
+            localStorage.setItem('token', '');
             return {
                 ...state,
-                usuario: null,
                 token: '',
-                isAutenticado: null
+                isAutenticado: false,
+                usuario: null
             }
 
         default:
             return state;
     }
 
-}
+};
+
+export default authReducer;

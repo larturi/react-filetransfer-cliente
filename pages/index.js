@@ -18,7 +18,10 @@ const Index = () => {
    const { mensajeArchivo, url } = AppContext;
 
   useEffect(() => {
-    usuarioAutenticado();
+    const token = localStorage.getItem('token');
+    if (token) {
+      usuarioAutenticado();
+    }
   }, []);
 
   return (

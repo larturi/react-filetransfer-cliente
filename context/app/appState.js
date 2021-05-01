@@ -8,8 +8,9 @@ import {
     SUBIR_ARCHIVO_OK,
     SUBIR_ARCHIVO_ERROR,
     CREAR_ENLACE_OK,
-    CREAR_ENLACE_ERROR,
-    LIMPIAR_STATE
+    LIMPIAR_STATE,
+    AGREGAR_PASSWORD,
+    AGREGAR_DESCARGAS
 } from '../../types';
 
 import appContext from './appContext';
@@ -99,6 +100,22 @@ const appState = ({children}) => {
         })
     };
 
+    // Agregar Password para proteger descarga
+    const addPassword = password => {
+        dispatch({
+            type: AGREGAR_PASSWORD,
+            payload: password
+        })
+    };
+
+    // Agregar cantidad de descargas 
+    const addDescargas = descargas => {
+        dispatch({
+            type: AGREGAR_DESCARGAS,
+            payload: descargas
+        })
+    };
+
     return (
         <appContext.Provider
             value={{
@@ -113,7 +130,9 @@ const appState = ({children}) => {
                 uploadFile,
                 crearEnlace,
                 mostrarAlerta,
-                limpiarState
+                limpiarState,
+                addPassword,
+                addDescargas
             }}
         >
             {children}
