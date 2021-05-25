@@ -30,14 +30,17 @@ const Index = () => {
         { url ? (
           <div className="text-center">
             <p className="text-center text-2xl mt-10">
-              <span className="font-bold text-red-700 text-2xl uppercase">Tu URL es:</span> {`${process.env.frontendURL}/enlaces/${url}`}
+              <span className="font-bold text-red-700 text-xl md:text-2xl uppercase">Tu URL es: </span>
+              <br />
+              <a className="text-sm md:text-2xl" href={`${process.env.frontendURL}/enlaces/${url}`}>{`${process.env.frontendURL}/enlaces/${url}`}</a>
+               
             </p>
 
-            <button
+            {/* <button
                 type="button"
                 className="bg-red-500 hover:bg-gray-900 px-20 text-center p-2 text-white uppercase font-bold mt-10"
                 onClick={() => navigator.clipboard.writeText(`${process.env.frontendURL}/enlaces/${url}`)}
-            >Copiar Enlace</button>
+            >Copiar Enlace</button> */}
           </div>
         ) : (
           <>

@@ -8,6 +8,6 @@ module.exports = {
     // Prod
     env: {
         backendURL: 'http://lab.apirest.com.ar:3005',
-        frontendURL: 'http://filetransfer.cloudapp.com.ar'
+        frontendURL: 'http://lab.apirest.com.ar:3006'
     }
 }
