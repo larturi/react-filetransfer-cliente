@@ -7,7 +7,7 @@ module.exports = {
 
     // Prod
     env: {
-        backendURL: 'https://fast-mountain-82209.herokuapp.com',
-        frontendURL: 'https://react-filetransfer-cliente.vercel.app'
+        backendURL: 'http://lab.apirest.com.ar:3005',
+        frontendURL: 'http://filetransfer.cloudapp.com.ar'
     }
 }

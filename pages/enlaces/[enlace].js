@@ -30,8 +30,6 @@ export async function getServerSidePaths() {
 
 const enlaces = ({ enlace }) => {
 
-    console.log(enlace);
-
     // Context de la App
     const AppContext = useContext(appContext);
     const { mostrarAlerta, mensajeArchivo } = AppContext;
@@ -61,7 +59,6 @@ const enlaces = ({ enlace }) => {
                 tienePassword ? (
                     <>
                       <p className="text-center mb-3">Coloca el password para continuar la descarga</p>
-
                       
                       <div className="flex justify-center mt-5">
                         <div className="w-full max-w-lg">
