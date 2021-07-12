@@ -50,7 +50,7 @@ const Index = () => {
               <div className="md:flex-1 mb-3 mx-2 mt-16 lg:mt-0">
                 <h2 className="text-3xl mt-0 font-sans font-bold text-gray-800 my-4">Compartir archivos de forma simple y privada</h2>
                 <p className="text-lg leading-loose">
-                  <span className="text-red-500 font-bold">FileTransfer</span> te permite compartir archivos con cifeado de extremo a extremo y configurar la cantidad permitida de descargas, eliminando automaticamente al llegar al limite establecido.
+                  <span className="text-red-500 font-bold">FileTransfer</span> te permite compartir archivos con cifrado de extremo a extremo y configurar la cantidad de descargas permitidas, eliminando automáticamente tu archivo al alcanzar el límite establecido.
                 </p>
                 <Link href="/crearcuenta">
                   <a className="text-red-500 font-bold text-lg hover:text-red-700">Crea una cuenta para mas funciones</a>
