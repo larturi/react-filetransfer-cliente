@@ -14,7 +14,6 @@ module.exports = {
    // Prod en Heroku y Vercel
    env: {
       backendURL: 'https://node-filetransfer-server.herokuapp.com',
-      frontendURL:
-         'https://react-filetransfer-cliente-8tqnggd3g-larturi.vercel.app',
+      frontendURL: 'https://react-filetransfer-cliente.vercel.app',
    },
 };
