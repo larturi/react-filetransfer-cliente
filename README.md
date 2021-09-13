@@ -1,5 +1,5 @@
 <h1 align="center">
-  Filetransfer App
+  Filetransfer App (Client)
 </h1>
 
 <h3 align="center">
